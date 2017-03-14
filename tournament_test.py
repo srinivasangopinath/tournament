@@ -85,7 +85,6 @@ def testReportMatches():
     reportMatch(id1, id2)
     reportMatch(id3, id4)
     standings = playerStandings()
-    print standings
     for (i, n, w, m) in standings:
         if m != 1:
             raise ValueError("Each player should have one match recorded.")
@@ -120,6 +119,7 @@ def testPairings():
     registerPlayer("Princess Celestia")
     registerPlayer("Princess Luna")
     standings = playerStandings()
+    print standings
     [id1, id2, id3, id4, id5, id6, id7, id8] = [row[0] for row in standings]
     pairings = swissPairings()
     if len(pairings) != 4:

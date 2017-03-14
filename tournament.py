@@ -110,10 +110,10 @@ def swissPairings():
     """
     DB=connect()
     c=DB.cursor()
-    player_standings=("select player_id, name, wins  from standings order by wins")
+    player_standings=("select player_id, name  from standings order by wins")
     c.execute(player_standings)
     players=c.fetchall()
-    swissPairings=[(players[i-1] + players[i]) for i in range(1, len(player), 2)]
+    swissPairings=[(players[i-1] + players[i]) for i in range(1, len(players), 2)]
     DB.commit()
     DB.close()
     return swissPairings
